@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Plan Your Perfect Journey - LUMINA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-surface-variant": "#464555",
+                "error": "#ba1a1a",
+                "secondary-fixed-dim": "#afc6ff",
+                "surface": "#fcf8ff",
+                "on-tertiary-fixed-variant": "#713700",
+                "tertiary-container": "#b65c00",
+                "on-tertiary-fixed": "#301400",
+                "surface-container-low": "#f6f2ff",
+                "secondary": "#0057c2",
+                "on-primary": "#ffffff",
+                "on-error-container": "#93000a",
+                "secondary-fixed": "#d9e2ff",
+                "tertiary": "#914800",
+                "on-background": "#1b1b24",
+                "inverse-surface": "#302f39",
+                "on-surface": "#1b1b24",
+                "primary-fixed": "#e3dfff",
+                "surface-variant": "#e4e1ee",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#c4c0ff",
+                "surface-container-highest": "#e4e1ee",
+                "inverse-primary": "#c4c0ff",
+                "surface-dim": "#dcd8e5",
+                "primary-container": "#675df9",
+                "inverse-on-surface": "#f3effc",
+                "surface-tint": "#4f44e2",
+                "outline": "#777587",
+                "tertiary-fixed": "#ffdcc6",
+                "on-tertiary-container": "#fffbff",
+                "on-secondary-container": "#fefcff",
+                "secondary-container": "#2c70e2",
+                "on-secondary-fixed": "#001a43",
+                "primary": "#4d41df",
+                "on-error": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-primary-fixed": "#100069",
+                "on-secondary-fixed-variant": "#004398",
+                "tertiary-fixed-dim": "#ffb785",
+                "on-primary-fixed-variant": "#3622ca",
+                "outline-variant": "#c7c4d8",
+                "surface-bright": "#fcf8ff",
+                "background": "#F8FAFC",
+                "on-primary-container": "#fffbff",
+                "surface-container": "#f0ecf9",
+                "surface-container-high": "#eae6f3",
+                "on-secondary": "#ffffff"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "20px",
+                "margin-desktop": "48px",
+                "base": "8px",
+                "gutter": "24px",
+                "stack-sm": "12px",
+                "container-max-width": "1280px",
+                "stack-xs": "4px",
+                "stack-xl": "80px",
+                "stack-md": "24px",
+                "stack-lg": "48px"
+        },
+        "fontFamily": {
+                "label-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "title-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-md": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "title-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "36px",
+                        {
+                                "lineHeight": "44px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #F8FAFC;
+            color: #1b1b24;
+            min-height: max(884px, 100dvh);
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile py-4 bg-white/70 dark:bg-black/40 backdrop-blur-xl border-b border-white/20 shadow-sm transition-all duration-300">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">LUMINA</h1>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity p-2 rounded-full flex items-center justify-center active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 mt-20 md:mt-24 p-margin-mobile md:p-margin-desktop max-w-container-max-width mx-auto w-full flex flex-col space-y-8 pb-32 md:pb-8">
+<!-- Header Section with Illustration -->
+<div class="flex flex-col md:flex-row items-center justify-between bg-white rounded-[2rem] p-8 shadow-sm border border-outline-variant/20 relative overflow-hidden">
+<!-- Background subtle glow -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-20 -left-20 w-64 h-64 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="space-y-4 text-center md:text-left flex-1 relative z-10">
+<h2 class="font-display-lg-mobile md:text-display-lg text-on-surface">Plan Your <br class="hidden md:block"/><span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Perfect Journey</span></h2>
+<p class="font-body-lg text-on-surface-variant max-w-md mx-auto md:mx-0">Let our advanced AI architect the ideal itinerary based on your unique preferences and style.</p>
+</div>
+<div class="mt-8 md:mt-0 w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-xl shadow-primary/10 border-4 border-white relative z-10 flex-shrink-0">
+<img alt="Sleek abstract 3D shape representing AI" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDCnjQuDQb-J0sXAf05F4TmOYTymvH09mOD81qo1o2e_2UvtENph4FWWYMzCeJltr-v_Or9Wx3e5bNUyWVq1PtdDGlSo7dQuYHDPVrh9OTEMJYdLhyC_NopLl0EwUgiZPuQA_6uXeKjhBMeYsEgI2_EVH7aBHFiT54rYzpPz1wWlpm9pf5_Sq-XTh36RPzurvY8LtI7v1XH_FuYM4CyPKVamIKTEA5ChJEDKyu19IR0vDkzDYbOceCLFfJe4LP2PoA0_MLNfHaKmZ7"/>
+</div>
+</div>
+<!-- Futuristic Input Form -->
+<div class="bg-white rounded-[2rem] p-6 md:p-8 shadow-sm border border-outline-variant/20 space-y-8 relative overflow-hidden">
+<!-- Source & Destination -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2 relative">
+<label class="font-label-md text-on-surface-variant ml-2 block">Source</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">flight_takeoff</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border border-outline-variant/40 rounded-2xl focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface font-body-lg transition-all shadow-sm" placeholder="Where are you starting?" type="text"/>
+</div>
+</div>
+<div class="space-y-2 relative">
+<label class="font-label-md text-on-surface-variant ml-2 block">Destination</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">flight_land</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border border-outline-variant/40 rounded-2xl focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface font-body-lg transition-all shadow-sm" placeholder="Where do you want to go?" type="text"/>
+</div>
+</div>
+</div>
+<!-- Dates & Budget -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2 relative">
+<label class="font-label-md text-on-surface-variant ml-2 block">Dates</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">calendar_month</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border border-outline-variant/40 rounded-2xl focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface font-body-lg transition-all shadow-sm" placeholder="Select dates" type="text"/>
+</div>
+</div>
+<div class="space-y-3 flex flex-col justify-center">
+<div class="flex justify-between items-center px-2">
+<label class="font-label-md text-on-surface-variant">Budget Range</label>
+<span class="font-label-md text-primary font-bold bg-primary/10 px-3 py-1 rounded-full">$1,000 - $5,000</span>
+</div>
+<div class="px-2 pt-2">
+<input class="w-full h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer accent-primary" max="10000" min="500" type="range"/>
+</div>
+</div>
+</div>
+<!-- Travel Style Chips -->
+<div class="space-y-3 pt-2">
+<label class="font-label-md text-on-surface-variant ml-2 block mb-3">Travel Style</label>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-3 rounded-full border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container hover:border-outline text-on-surface font-label-md transition-all shadow-sm">Adventure</button>
+<button class="px-6 py-3 rounded-full border-2 border-primary bg-primary/5 text-primary font-label-md transition-all shadow-sm font-bold">Luxury</button>
+<button class="px-6 py-3 rounded-full border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container hover:border-outline text-on-surface font-label-md transition-all shadow-sm">Family</button>
+<button class="px-6 py-3 rounded-full border border-outline-variant/40 bg-surface-container-lowest hover:bg-surface-container hover:border-outline text-on-surface font-label-md transition-all shadow-sm">Solo</button>
+</div>
+</div>
+<!-- Generate Button -->
+<div class="pt-6">
+<button class="w-full py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-2xl font-label-md text-lg font-bold hover:shadow-[0_10px_25px_-5px_rgba(77,65,223,0.4)] transition-all flex justify-center items-center space-x-2 active:scale-[0.98]">
+<span>Generate Trip</span>
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+</div>
+</div>
+<!-- Draft Itinerary Card -->
+<div class="mt-12">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-6 flex items-center space-x-2 ml-2">
+<span class="material-symbols-outlined text-primary">bookmark_added</span>
+<span>Latest Draft</span>
+</h3>
+<div class="bg-white rounded-[2rem] overflow-hidden shadow-sm border border-outline-variant/20 group">
+<!-- Header Image Area -->
+<div class="h-48 md:h-64 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A breathtaking panoramic view of a rugged Icelandic landscape" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnbU3PEwZQXLscVouRbW_k57yXhDOIbuuISt4ZFmV65kONLEaihJJ7Zs_xBSDk3_NXqnyDa4yipOZyPyl7my_zhTXxsH6p0BsEBZgXp-I71OlbgR13kBhXbnFueg7XAdQQNkacTwECWl_G259LIKkBCy7o741JnT4yNzF32YnycwwXabh6ahR14EtI-6o9whl18Jaq9JFkIVAMoPqzrXL8DZyoYsPg9prH4-rB1M22s5Rmnp0epZ0qHMdvPbTvQHfjuloL4Bm46PFY');">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+<div>
+<span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-lg font-label-sm text-white mb-3 inline-block border border-white/30 tracking-wider">7 DAYS • SUSTAINABLE</span>
+<h4 class="font-display-lg-mobile md:font-display-lg text-white leading-tight">Icelandic Ring Road</h4>
+</div>
+<div class="text-right">
+<span class="block font-label-sm text-white/80">Est. Total</span>
+<span class="font-headline-md text-headline-md text-secondary-fixed-dim">$2,850</span>
+</div>
+</div>
+</div>
+<!-- Content Area -->
+<div class="p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Quick Stats -->
+<div class="space-y-5 col-span-1 md:border-r border-outline-variant/30 pr-6">
+<div class="flex items-center space-x-4 text-on-surface">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">flight_takeoff</span>
+</div>
+<div>
+<span class="block font-label-sm text-outline tracking-wider">FLIGHTS</span>
+<span class="font-body-md font-medium text-on-surface">JFK → KEF (Direct)</span>
+</div>
+</div>
+<div class="flex items-center space-x-4 text-on-surface">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">hotel</span>
+</div>
+<div>
+<span class="block font-label-sm text-outline tracking-wider">LODGING</span>
+<span class="font-body-md font-medium text-on-surface">Eco-Lodges &amp; Cabins</span>
+</div>
+</div>
+<div class="flex items-center space-x-4 text-on-surface">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">directions_car</span>
+</div>
+<div>
+<span class="block font-label-sm text-outline tracking-wider">TRANSPORT</span>
+<span class="font-body-md font-medium text-on-surface">EV Rental Car</span>
+</div>
+</div>
+</div>
+<!-- Highlights -->
+<div class="col-span-1 md:col-span-2 flex flex-col justify-between">
+<div>
+<h5 class="font-label-md text-on-surface-variant mb-4">Key Highlights</h5>
+<div class="flex flex-wrap gap-2">
+<span class="px-4 py-2 bg-surface-container-low rounded-full font-body-md text-sm text-on-surface border border-outline-variant/30">Golden Circle</span>
+<span class="px-4 py-2 bg-surface-container-low rounded-full font-body-md text-sm text-on-surface border border-outline-variant/30">Glacier Hike</span>
+<span class="px-4 py-2 bg-surface-container-low rounded-full font-body-md text-sm text-on-surface border border-outline-variant/30">Hot Springs</span>
+<span class="px-4 py-2 bg-surface-container-low rounded-full font-body-md text-sm text-on-surface border border-outline-variant/30">Northern Lights Hunt</span>
+</div>
+</div>
+<div class="mt-8 flex space-x-4">
+<button class="flex-1 bg-white hover:bg-surface-container-low text-primary border border-outline-variant/50 py-3 rounded-xl font-label-md transition-colors flex justify-center items-center space-x-2">
+<span class="material-symbols-outlined text-sm">edit</span>
+<span>Refine</span>
+</button>
+<button class="flex-1 bg-primary text-white py-3 rounded-xl font-label-md hover:bg-primary/90 transition-colors flex justify-center items-center space-x-2 shadow-md shadow-primary/20">
+<span>View Full</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-center pb-safe">
+<div class="bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-2xl border border-white/50 dark:border-white/10 shadow-[0_10px_30px_-5px_rgba(30,41,59,0.15)] rounded-full mx-4 mb-6 flex justify-around items-center h-16 px-2 w-full max-w-md">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm hidden">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-2 scale-110 shadow-lg shadow-primary/30 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1">event_note</span>
+<span class="font-label-sm text-label-sm hidden">Planner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">map</span>
+<span class="font-label-sm text-label-sm hidden">Maps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm hidden">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm hidden">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

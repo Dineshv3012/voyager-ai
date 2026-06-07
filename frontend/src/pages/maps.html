@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aero-Luxe Maps</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#464555",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#afc6ff",
+                        "surface": "#fcf8ff",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "tertiary-container": "#b65c00",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-container-low": "#f6f2ff",
+                        "secondary": "#0057c2",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d9e2ff",
+                        "tertiary": "#914800",
+                        "on-background": "#1b1b24",
+                        "inverse-surface": "#302f39",
+                        "on-surface": "#1b1b24",
+                        "primary-fixed": "#e3dfff",
+                        "surface-variant": "#e4e1ee",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface-container-highest": "#e4e1ee",
+                        "inverse-primary": "#c4c0ff",
+                        "surface-dim": "#dcd8e5",
+                        "primary-container": "#675df9",
+                        "inverse-on-surface": "#f3effc",
+                        "surface-tint": "#4f44e2",
+                        "outline": "#777587",
+                        "tertiary-fixed": "#ffdcc6",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-container": "#2c70e2",
+                        "on-secondary-fixed": "#001a43",
+                        "primary": "#4d41df",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#100069",
+                        "on-secondary-fixed-variant": "#004398",
+                        "tertiary-fixed-dim": "#ffb785",
+                        "on-primary-fixed-variant": "#3622ca",
+                        "outline-variant": "#c7c4d8",
+                        "surface-bright": "#fcf8ff",
+                        "background": "#fcf8ff",
+                        "on-primary-container": "#fffbff",
+                        "surface-container": "#f0ecf9",
+                        "surface-container-high": "#eae6f3",
+                        "on-secondary": "#ffffff",
+                        "accent-blue": "#6C63FF"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "48px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "container-max-width": "1280px",
+                        "stack-xs": "4px",
+                        "stack-xl": "80px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .shadow-ambient {
+            box-shadow: 0 10px 30px -5px rgba(30, 41, 59, 0.08);
+        }
+
+        /* Map styling simulation */
+        .map-bg {
+            background-color: #f0f4f8; /* Very light blue/silver base */
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 0%, rgba(240,244,248,0) 100%),
+                linear-gradient(45deg, #e2e8f0 25%, transparent 25%, transparent 75%, #e2e8f0 75%, #e2e8f0),
+                linear-gradient(45deg, #e2e8f0 25%, transparent 25%, transparent 75%, #e2e8f0 75%, #e2e8f0);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            background-position: 0 0, 0 0, 20px 20px;
+            opacity: 0.8;
+        }
+
+        .route-line {
+            stroke-dasharray: 10;
+            animation: dash 20s linear infinite;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -1000;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface h-screen w-screen overflow-hidden flex flex-col font-body-md antialiased selection:bg-primary selection:text-on-primary">
+<!-- Top App Bar (From JSON) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile py-4 bg-white/70 dark:bg-black/40 backdrop-blur-xl border-b border-white/20 shadow-sm transition-transform duration-200">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant overflow-hidden border border-white/50 shadow-ambient flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">person</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">LUMINA</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-primary/10 text-primary px-3 py-1.5 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">cloud_off</span>
+                 Offline Ready
+             </div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity text-primary dark:text-primary-fixed-dim bg-white/50 border border-white shadow-sm">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</button>
+</div>
+</header>
+<!-- Map Area (Canvas) -->
+<main class="flex-grow relative w-full h-full">
+<!-- The actual map background -->
+<div class="absolute inset-0 map-bg z-0" data-location="Paris" style="">
+<!-- Simulated Route SVG -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveaspectratio="xMidYMid slice" viewbox="0 0 1000 1000">
+<!-- Route Path -->
+<path d="M 200 800 C 300 700, 400 600, 500 500 C 600 400, 700 300, 800 200" fill="none" stroke="rgba(108, 99, 255, 0.4)" stroke-linecap="round" stroke-width="12"></path>
+<path class="route-line" d="M 200 800 C 300 700, 400 600, 500 500 C 600 400, 700 300, 800 200" fill="none" stroke="#6C63FF" stroke-linecap="round" stroke-width="6"></path>
+<!-- Start Point (CDG) -->
+<circle cx="200" cy="800" fill="#fff" r="8" stroke="#1b1b24" stroke-width="3"></circle>
+<!-- End Point (Le Meurice) -->
+<circle cx="800" cy="200" fill="#6C63FF" r="10" stroke="#fff" stroke-width="3"></circle>
+</svg>
+</div>
+<!-- Floating Controls (Right Side) -->
+<div class="absolute right-4 top-24 z-10 flex flex-col gap-3">
+<button class="w-12 h-12 glass-panel rounded-2xl flex items-center justify-center shadow-ambient text-on-surface hover:text-primary transition-colors group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">ev_station</span>
+</button>
+<button class="w-12 h-12 glass-panel rounded-2xl flex items-center justify-center shadow-ambient text-on-surface hover:text-primary transition-colors group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">local_gas_station</span>
+</button>
+<button class="w-12 h-12 glass-panel rounded-2xl flex items-center justify-center shadow-ambient text-on-surface hover:text-primary transition-colors group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">attractions</span>
+</button>
+<button class="w-12 h-12 glass-panel rounded-2xl flex items-center justify-center shadow-ambient text-on-surface hover:text-primary transition-colors group mt-4">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">my_location</span>
+</button>
+</div>
+<!-- Title / Status Bubble (Top Left) -->
+<div class="absolute left-margin-mobile top-24 z-10">
+<div class="glass-panel px-4 py-2 rounded-full flex items-center gap-2 shadow-ambient">
+<span class="material-symbols-outlined text-accent-blue" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-md text-label-md text-on-surface">AI Smart Navigation</span>
+</div>
+</div>
+<!-- Bottom Sheet (Route Info) -->
+<div class="absolute bottom-28 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-md z-20">
+<div class="bg-white rounded-3xl p-6 shadow-ambient border border-white/80">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-surface-variant rounded-full mx-auto mb-6"></div>
+<!-- Header: ETA & Badge -->
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-1">12<span class="font-headline-sm text-headline-sm text-outline ml-1">min</span></h2>
+<p class="font-body-md text-body-md text-outline">18.4 km • 14:30 Arrival</p>
+</div>
+<div class="bg-[#8B5CF6]/10 border border-[#8B5CF6]/20 px-3 py-1.5 rounded-full flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#8B5CF6] text-[16px]">bolt</span>
+<span class="font-label-sm text-label-sm text-[#8B5CF6]">Route Optimized</span>
+</div>
+</div>
+<!-- Location Points -->
+<div class="relative pl-6 mb-6">
+<!-- Vertical Line -->
+<div class="absolute left-[9px] top-3 bottom-3 w-[2px] bg-surface-variant"></div>
+<div class="mb-4 relative">
+<div class="absolute -left-[27px] top-1.5 w-[14px] h-[14px] rounded-full border-[3px] border-surface-variant bg-white z-10"></div>
+<p class="font-label-md text-label-md text-on-surface">CDG Airport</p>
+<p class="font-label-sm text-label-sm text-outline">Terminal 2E</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[27px] top-1.5 w-[14px] h-[14px] rounded-full bg-accent-blue z-10"></div>
+<p class="font-label-md text-label-md text-on-surface">Le Meurice</p>
+<p class="font-label-sm text-label-sm text-outline">228 Rue de Rivoli</p>
+</div>
+</div>
+<!-- Transport Toggles & Action -->
+<div class="flex items-center gap-3">
+<div class="flex bg-surface-container rounded-full p-1 flex-grow">
+<button class="flex-1 py-2 rounded-full bg-white shadow-sm text-accent-blue flex justify-center items-center">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</button>
+<button class="flex-1 py-2 rounded-full text-on-surface-variant hover:text-on-surface flex justify-center items-center transition-colors">
+<span class="material-symbols-outlined">directions_walk</span>
+</button>
+<button class="flex-1 py-2 rounded-full text-on-surface-variant hover:text-on-surface flex justify-center items-center transition-colors">
+<span class="material-symbols-outlined">pedal_bike</span>
+</button>
+</div>
+<button class="bg-gradient-to-r from-primary to-accent-blue text-white rounded-full h-12 px-6 font-label-md text-label-md shadow-lg shadow-primary/30 hover:scale-[1.02] transition-transform flex items-center justify-center gap-2">
+                        Start
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (From JSON) -->
+<!-- Active state applied to 'Maps' -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-center pb-safe md:hidden">
+<div class="bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-2xl rounded-full mx-4 mb-6 border border-white/50 dark:border-white/10 shadow-[0_10px_30px_-5px_rgba(30,41,59,0.15)] flex justify-around items-center px-2 py-2 w-full max-w-md">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">event_note</span>
+<span class="font-label-sm text-label-sm">Planner</span>
+</a>
+<!-- Active Item: Maps -->
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-2 scale-110 shadow-lg shadow-primary/30" href="#">
+<span class="material-symbols-outlined mb-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-label-sm text-label-sm">Maps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+<!-- Desktop Nav (Hidden on Mobile) -->
+<nav class="hidden md:flex fixed left-0 top-0 h-full w-20 flex-col items-center py-24 bg-white/70 backdrop-blur-xl border-r border-white/20 z-40 shadow-sm">
+<a class="flex flex-col items-center justify-center text-on-surface-variant mb-8 hover:text-primary transition-colors w-12 h-12 rounded-xl" href="#">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant mb-8 hover:text-primary transition-colors w-12 h-12 rounded-xl" href="#">
+<span class="material-symbols-outlined">event_note</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-xl w-12 h-12 shadow-lg shadow-primary/30 mb-8 scale-110" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">map</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant mb-8 hover:text-primary transition-colors w-12 h-12 rounded-xl" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</a>
+</nav>
+</body></html>

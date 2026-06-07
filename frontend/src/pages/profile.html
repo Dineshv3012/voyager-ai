@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traveler Profile | Aero-Luxe AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#464555",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#afc6ff",
+                        "surface": "#fcf8ff",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "tertiary-container": "#b65c00",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-container-low": "#f6f2ff",
+                        "secondary": "#0057c2",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d9e2ff",
+                        "tertiary": "#914800",
+                        "on-background": "#1b1b24",
+                        "inverse-surface": "#302f39",
+                        "on-surface": "#1b1b24",
+                        "primary-fixed": "#e3dfff",
+                        "surface-variant": "#e4e1ee",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface-container-highest": "#e4e1ee",
+                        "inverse-primary": "#c4c0ff",
+                        "surface-dim": "#dcd8e5",
+                        "primary-container": "#675df9",
+                        "inverse-on-surface": "#f3effc",
+                        "surface-tint": "#4f44e2",
+                        "outline": "#777587",
+                        "tertiary-fixed": "#ffdcc6",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-container": "#2c70e2",
+                        "on-secondary-fixed": "#001a43",
+                        "primary": "#4d41df",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#100069",
+                        "on-secondary-fixed-variant": "#004398",
+                        "tertiary-fixed-dim": "#ffb785",
+                        "on-primary-fixed-variant": "#3622ca",
+                        "outline-variant": "#c7c4d8",
+                        "surface-bright": "#fcf8ff",
+                        "background": "#fcf8ff",
+                        "on-primary-container": "#fffbff",
+                        "surface-container": "#f0ecf9",
+                        "surface-container-high": "#eae6f3",
+                        "on-secondary": "#ffffff",
+                        "luxury-purple": "#8B5CF6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "48px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "container-max-width": "1280px",
+                        "stack-xs": "4px",
+                        "stack-xl": "80px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px -5px rgba(30, 41, 59, 0.08);
+        }
+        .ai-glow {
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#F8FAFC] text-on-surface min-h-screen pb-32">
+<!-- Top Navigation (Mobile) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile py-4 bg-white/70 dark:bg-black/40 backdrop-blur-xl border-b border-white/20 shadow-sm md:hidden">
+<div class="flex items-center gap-3">
+<img alt="Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm" data-alt="A close up portrait of a confident young professional man with short dark hair, wearing a sleek modern navy jacket over a white t-shirt. The background is softly blurred showing a bright, high-end airport lounge. The lighting is soft and flattering, creating a premium light-mode aesthetic. High resolution, photorealistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTvUtPEFr8l_yqd2t_sWV1xEYLjiGzJzmi0wLBmXwXlChJRVi02rTKPhOArGrXm24SCjnotsSecQ2VWsVoDVTfgyMNVuFxRfVgQnQ6yIIfc3BA1YIIxg_krFzslI-VNA6sv1crrSnUhjjph74UJbkK93lvk_an7yhyz2oCA_WhSslEQramMWXtiATAnxvI-b1Z6pUXrAypZMgCftLvPtJ9xdQPpsjqQnIJzEPNrQE-RycUB-RFix3gISsF1eww9ptO7dibm3KeowgN"/>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">LUMINA</h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+</header>
+<!-- Top Navigation (Desktop) -->
+<header class="hidden md:flex fixed top-0 w-full z-50 justify-between items-center px-margin-desktop py-4 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-sm">
+<h1 class="font-display-lg text-display-lg tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">LUMINA</h1>
+<nav class="flex gap-8">
+<!-- Top Nav Items mapped from BottomNav logic for Desktop -->
+<a class="font-label-md text-label-md flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">home</span>Home</a>
+<a class="font-label-md text-label-md flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">event_note</span>Planner</a>
+<a class="font-label-md text-label-md flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">map</span>Maps</a>
+<a class="font-label-md text-label-md flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">account_balance_wallet</span>Wallet</a>
+<a class="font-label-md text-label-md flex items-center gap-2 text-primary border-b-2 border-primary pb-1" href="#"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">person</span>Profile</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<img alt="Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1CthEpgexxi3tl7SgbvveC-HUMszwmYmfBEvj-7pKg-0jM5CaJVYtcNjMfRlFHK56eVIBfOcjnI17PTZOhXhsIzKAAfIrkI_WtEbSdYILVoVaqI1veTrHYEqKUmW5Kke6yxgiut2xciso_s-o7P-xe4JbFkDpkcxi9H06lcZ_At5QH3pCt_ULLM9meDElLKuidzY17ogtIbnff2RMdvhbgFAhMZTo7q_3WG6XONT5sWyCkcB_eyP-9-JLB6OMl6mj-7tDA_jsO4gW"/>
+</div>
+</header>
+<main class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop pt-28 md:pt-36">
+<!-- Page Title -->
+<h2 class="font-headline-md text-headline-md mb-stack-md">Traveler Profile</h2>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Profile Card & Stats -->
+<div class="lg:col-span-4 flex flex-col gap-gutter">
+<!-- Profile Card -->
+<div class="glass-card rounded-[24px] p-8 flex flex-col items-center text-center relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-24 bg-gradient-to-br from-primary/10 to-luxury-purple/20"></div>
+<div class="relative z-10">
+<div class="relative w-28 h-28 mx-auto mb-4">
+<img alt="Alex Johnson" class="w-full h-full rounded-full object-cover border-4 border-white shadow-lg" data-alt="A close up portrait of a confident young professional man with short dark hair, wearing a sleek modern navy jacket over a white t-shirt. The background is softly blurred showing a bright, high-end airport lounge. The lighting is soft and flattering, creating a premium light-mode aesthetic. High resolution, photorealistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbxTMAlj_ym5gk8Ky6V801e3hLXbWToHhVHGZSfrOBVPBQ0z3nZy7yWppO-ogzhLEf7KDCiwQ6r-IcW_44msh76ycKSeYhE2XPx8Dzylva-rWOR0t-SVlGVOugrOqMfJA6iTxV17HYQIJ55k9btRc7v6ocOi7JX5chyB3BsSnr3p-X13gukpch27AhR_dbARW4Dr-aJeUVhhN68iqLjlFdpgScBmvqPt6y-6SFRZbxV5l5_37biEfxaQah8Hz-f6j2yI8vjI5GQG2m"/>
+<div class="absolute -bottom-2 -right-2 bg-gradient-to-r from-amber-400 to-luxury-purple p-1.5 rounded-full border-2 border-white shadow-md">
+<span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h3 class="font-title-lg text-title-lg mb-1">Alex Johnson</h3>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-100 to-purple-100 text-luxury-purple mb-6">
+<span class="material-symbols-outlined text-[14px]">military_tech</span>
+<span class="font-label-md text-label-md text-luxury-purple">Elite Voyager</span>
+</div>
+<button class="w-full py-3 px-6 rounded-lg bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-variant transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span> Edit Profile
+                        </button>
+</div>
+</div>
+<!-- Travel Stats -->
+<div class="glass-card rounded-[24px] p-6">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-4 uppercase tracking-wider">Travel Lifetime</h4>
+<div class="grid grid-cols-3 gap-4 text-center">
+<div>
+<div class="font-headline-sm text-headline-sm text-primary mb-1">24</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Countries</div>
+</div>
+<div class="border-x border-outline-variant/30">
+<div class="font-headline-sm text-headline-sm text-primary mb-1">142</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Flights</div>
+</div>
+<div class="relative">
+<div class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-luxury-purple animate-pulse"></div>
+<div class="font-headline-sm text-headline-sm text-luxury-purple mb-1">5</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">AI Trips</div>
+</div>
+</div>
+</div>
+<!-- Achievement Grid -->
+<div class="glass-card rounded-[24px] p-6">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Badges</h4>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">View All</a>
+</div>
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center gap-2 bg-[#E0F2FE] px-3 py-1.5 rounded-full text-[#0369A1]">
+<span class="material-symbols-outlined text-[16px]">eco</span>
+<span class="font-label-sm text-label-sm">Carbon Neutral</span>
+</div>
+<div class="flex items-center gap-2 bg-[#FEF3C7] px-3 py-1.5 rounded-full text-[#B45309]">
+<span class="material-symbols-outlined text-[16px]">map</span>
+<span class="font-label-sm text-label-sm">Local Legend</span>
+</div>
+<div class="flex items-center gap-2 bg-[#FCE7F3] px-3 py-1.5 rounded-full text-[#BE185D]">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+<span class="font-label-sm text-label-sm">Culture Vulture</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Settings Menu -->
+<div class="lg:col-span-8">
+<div class="glass-card rounded-[32px] overflow-hidden">
+<!-- Menu Item List -->
+<div class="flex flex-col">
+<a class="flex items-center justify-between p-6 hover:bg-surface-container/50 transition-colors border-b border-white/50 group" href="#">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">offline_pin</span>
+</div>
+<div>
+<h5 class="font-title-lg text-title-lg text-on-surface">Offline Downloads</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Maps, tickets, and guides</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-6 hover:bg-surface-container/50 transition-colors border-b border-white/50 group" href="#">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">bookmark</span>
+</div>
+<div>
+<h5 class="font-title-lg text-title-lg text-on-surface">Saved Trips</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Your AI-generated itineraries</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-6 hover:bg-surface-container/50 transition-colors border-b border-white/50 group" href="#">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div>
+<h5 class="font-title-lg text-title-lg text-on-surface">Payment Methods</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage cards and currencies</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-6 hover:bg-surface-container/50 transition-colors border-b border-white/50 group" href="#">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface-variant group-hover:text-primary group-hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">notifications_active</span>
+</div>
+<div>
+<h5 class="font-title-lg text-title-lg text-on-surface">Notification Settings</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Flight alerts and AI updates</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+</div>
+<!-- Premium CTA inside the list card -->
+<div class="p-6 bg-gradient-to-r from-[#F8FAFC] to-[#F3E8FF] ai-glow m-4 rounded-[24px]">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-gradient-to-br from-luxury-purple to-primary flex items-center justify-center text-white shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<h5 class="font-title-lg text-title-lg text-luxury-purple">Aero-Luxe Premium</h5>
+<p class="font-body-md text-body-md text-on-surface-variant">Unlock unlimited AI planning.</p>
+</div>
+</div>
+<button class="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-luxury-purple to-primary text-white font-label-md text-label-md hover:scale-105 transition-transform shadow-lg shadow-luxury-purple/30">
+                                Upgrade Now
+                            </button>
+</div>
+</div>
+<div class="p-6 flex justify-center mt-2">
+<button class="text-error font-label-md text-label-md flex items-center gap-2 hover:bg-error-container/50 px-4 py-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">logout</span> Log Out
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-center pb-safe">
+<div class="bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-2xl rounded-full mx-4 mb-6 border border-white/50 dark:border-white/10 shadow-[0_10px_30px_-5px_rgba(30,41,59,0.15)] w-full max-w-md flex justify-between px-2 py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1">event_note</span>
+<span class="font-label-sm text-label-sm">Planner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1">map</span>
+<span class="font-label-sm text-label-sm">Maps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors flex-1" href="#">
+<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-2 scale-110 shadow-lg shadow-primary/30 Active: scale-90 duration-300 ease-out flex-1" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

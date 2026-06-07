@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Trip X - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* White Glassmorphism utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        
+        .glass-panel-elevated {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #4d41df, #2c70e2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-primary-gradient {
+            background: linear-gradient(135deg, #4d41df, #675df9);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary-gradient:hover {
+            box-shadow: 0 4px 12px rgba(77, 65, 223, 0.3);
+        }
+
+        /* Hide scrollbar for horizontal scrolling but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .font-serif-mix {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-surface-variant": "#464555",
+                "error": "#ba1a1a",
+                "secondary-fixed-dim": "#afc6ff",
+                "surface": "#fcf8ff",
+                "on-tertiary-fixed-variant": "#713700",
+                "tertiary-container": "#b65c00",
+                "on-tertiary-fixed": "#301400",
+                "surface-container-low": "#f6f2ff",
+                "secondary": "#0057c2",
+                "on-primary": "#ffffff",
+                "on-error-container": "#93000a",
+                "secondary-fixed": "#d9e2ff",
+                "tertiary": "#914800",
+                "on-background": "#1b1b24",
+                "inverse-surface": "#302f39",
+                "on-surface": "#1b1b24",
+                "primary-fixed": "#e3dfff",
+                "surface-variant": "#e4e1ee",
+                "on-tertiary": "#ffffff",
+                "primary-fixed-dim": "#c4c0ff",
+                "surface-container-highest": "#e4e1ee",
+                "inverse-primary": "#c4c0ff",
+                "surface-dim": "#dcd8e5",
+                "primary-container": "#675df9",
+                "inverse-on-surface": "#f3effc",
+                "surface-tint": "#4f44e2",
+                "outline": "#777587",
+                "tertiary-fixed": "#ffdcc6",
+                "on-tertiary-container": "#fffbff",
+                "on-secondary-container": "#fefcff",
+                "secondary-container": "#2c70e2",
+                "on-secondary-fixed": "#001a43",
+                "primary": "#4d41df",
+                "on-error": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-primary-fixed": "#100069",
+                "on-secondary-fixed-variant": "#004398",
+                "tertiary-fixed-dim": "#ffb785",
+                "on-primary-fixed-variant": "#3622ca",
+                "outline-variant": "#c7c4d8",
+                "surface-bright": "#fcf8ff",
+                "background": "#fcf8ff",
+                "on-primary-container": "#fffbff",
+                "surface-container": "#f0ecf9",
+                "surface-container-high": "#eae6f3",
+                "on-secondary": "#ffffff"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "20px",
+                "margin-desktop": "48px",
+                "base": "8px",
+                "gutter": "24px",
+                "stack-sm": "12px",
+                "container-max-width": "1280px",
+                "stack-xs": "4px",
+                "stack-xl": "80px",
+                "stack-md": "24px",
+                "stack-lg": "48px"
+        },
+        "fontFamily": {
+                "label-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "title-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-md": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "title-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "36px",
+                        {
+                                "lineHeight": "44px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    .pb-safe {
+      padding-bottom: env(safe-area-inset-bottom, 20px);
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-on-background font-body-md min-h-screen flex flex-col antialiased selection:bg-primary selection:text-on-primary pb-[100px] md:pb-0 pt-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile py-4 bg-white/70 dark:bg-black/40 backdrop-blur-xl border-b border-white/20 shadow-sm transition-all duration-300">
+<div class="flex items-center gap-4 w-full max-w-container-max-width mx-auto justify-between">
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6tfdWYATB7UWHRnKCufsJ_v05KS92VinZ8nkOZFIqbeOXIyv75KBRUb8u93AZjkzZkxdPCHFEDLAD44lA91raPFbGTzP3vSbbrBUsptLD-wXUlH7jrS-vC5Br5hx53juW8zpX4I4QB_ZhtqvcEKJK_UXDTJFES6hm2JCqhx8kbhah88iLK0-_Syw3qSstBimMnW44KV4gUE65fte19CR3uVaBYPhnuyVGPUkWM8xJfKv36sSBMestZp3mQUs5_0xn9UurbN7Xake_"/>
+</button>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">LUMINA</h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-[10px] font-label-sm font-semibold text-outline">OFFLINE</span>
+</div>
+<button class="hover:opacity-80 transition-opacity text-primary relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop py-4 flex flex-col gap-10">
+<!-- Hero Section -->
+<section class="flex flex-col gap-6">
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-md text-label-md text-primary font-semibold tracking-wide">AI ACTIVE</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface-variant ml-2">Good Morning, Alex</h2>
+</div>
+<h3 class="font-serif-mix text-[32px] md:text-[44px] leading-tight font-medium text-on-background max-w-xl">
+            Where do you want to go today?
+        </h3>
+</div>
+<!-- Search Bar -->
+<div class="glass-panel-elevated rounded-2xl p-2 flex items-center gap-3 w-full max-w-2xl relative transition-all focus-within:ring-2 focus-within:ring-primary/40 focus-within:border-primary/30">
+<div class="pl-4 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<input class="bg-transparent border-none outline-none text-on-background font-body-md text-body-md w-full focus:ring-0 placeholder-outline" placeholder="Search destinations, hotels, or experiences..." type="text"/>
+<button class="bg-primary hover:bg-primary/90 text-on-primary p-3 rounded-xl transition-colors flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+<!-- Quick Actions Grid -->
+<div class="grid grid-cols-3 gap-4 max-w-2xl mt-2">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl glass-panel hover:border-primary/30 hover:shadow-md transition-all group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="flight">flight</span>
+<span class="font-label-sm text-label-sm text-on-background">Flights</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl glass-panel hover:border-primary/30 hover:shadow-md transition-all group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="hotel">hotel</span>
+<span class="font-label-sm text-label-sm text-on-background">Hotels</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl glass-panel hover:border-primary/30 hover:shadow-md transition-all group bg-primary-fixed/30 border-primary-fixed">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">AI Planner</span>
+</button>
+</div>
+</section>
+<!-- Your Next Trip Card -->
+<section class="flex flex-col gap-4">
+<h3 class="font-title-lg text-title-lg text-on-background">Upcoming Trip</h3>
+<div class="relative rounded-[32px] overflow-hidden glass-panel group min-h-[300px] flex flex-col justify-end p-6 md:p-8 shadow-lg" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtX0y9dLJrFv0sV1liY_u2CR10FGLN9WI3LjWNJYpOVxonVdSTFHg9I9OOXbZg4AQWmo7xHY5-Yprti2in-Vo3am3IrjKZe0wOzhHaZvauxujcttK3iZv3PGm5MPJJliQYOMIHh6P4-JcPwdIHUHom4FaWUuCsZBwj9B7ysS2r34uVE_Fb5r-KeiPDBn87kukG7u_Is-FKK2-Nu_3OoFOTaS9YFZFpklKPFfdMgEuYptvtXR1pHjing6c-5QNovU_HpgjPAv67lAPo'); background-size: cover; background-position: center;">
+<div class="absolute top-6 right-6 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 border border-white/30">
+<span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-white font-bold tracking-wider uppercase">Preparing</span>
+</div>
+<div class="relative z-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+<div class="text-white">
+<div class="flex items-center gap-2 mb-2 text-white/80">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase">NORWAY</span>
+</div>
+<h4 class="font-display-lg-mobile text-[36px] font-bold mb-2 font-serif-mix">Fjord Expedition</h4>
+<p class="font-body-md text-body-md text-white/90 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span> Oct 12 - Oct 24
+                        </p>
+</div>
+<div class="bg-white/20 backdrop-blur-xl rounded-2xl p-4 flex items-center gap-5 border border-white/30">
+<div class="flex flex-col items-center text-white">
+<span class="font-headline-md text-headline-md font-bold">14</span>
+<span class="font-label-sm text-label-sm text-white/80 uppercase">Days</span>
+</div>
+<div class="w-px h-10 bg-white/30"></div>
+<div class="flex flex-col items-center text-white">
+<span class="font-headline-md text-headline-md font-bold">08</span>
+<span class="font-label-sm text-label-sm text-white/80 uppercase">Hrs</span>
+</div>
+<button class="ml-2 bg-white text-primary font-label-md text-label-md px-6 py-3 rounded-xl flex items-center gap-2 hover:bg-white/90 transition-colors shadow-sm">
+                            Manage
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Recommended Destinations -->
+<section class="flex flex-col gap-4 relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="recommend">recommend</span>
+<h3 class="font-title-lg text-title-lg text-on-background">AI Recommended</h3>
+</div>
+<button class="text-primary font-label-md text-label-md flex items-center gap-1 hover:text-primary/80 transition-colors">
+                    See All <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="flex gap-6 overflow-x-auto no-scrollbar pb-4 -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0">
+<!-- Card 1 -->
+<div class="min-w-[280px] md:min-w-[320px] rounded-[24px] overflow-hidden glass-panel group cursor-pointer relative flex flex-col">
+<div class="h-48 relative w-full overflow-hidden">
+<img alt="Paris" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5xo1hzu9vfx9c9QZZ1Se5210BsUK0DVLN6qktp7uuphxBpNfHIjsIfnCWx6RhsrimYwtmyCYiIV70q0RBLJRMQawI9925Dq81qUwd7Y83Fj5E3nTL8ex6ovumUD6GGw2EvXczCShmhe_Ep5kj7RzliuMsliv8U9Z6EZjKuBtN96xjcDZtMkBzlZVZBIFK1xM1uF6rWJJpvvxiKXzJzgrqncOXYi71LS3NLcNHUnhubU49SpB-yp-gh7RsokE032xaTIui043YBufF"/>
+<div class="absolute top-3 left-3 z-20 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-1 border border-white/50 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">98% MATCH</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-2 bg-white/40">
+<h4 class="font-title-lg text-title-lg text-on-background font-serif-mix">Paris Classic</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">A curated blend of historical art tours and culinary experiences tailored for you.</p>
+<div class="mt-3 flex gap-2">
+<span class="text-[12px] font-label-sm px-3 py-1 rounded-full bg-white border border-outline-variant text-on-surface-variant">Art</span>
+<span class="text-[12px] font-label-sm px-3 py-1 rounded-full bg-white border border-outline-variant text-on-surface-variant">Culture</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[280px] md:min-w-[320px] rounded-[24px] overflow-hidden glass-panel group cursor-pointer relative flex flex-col">
+<div class="h-48 relative w-full overflow-hidden">
+<img alt="Swiss Alps" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXHst-xHLlVfaNtCcydidmcHoCZiSfcBA8hxs9BerFQpDCeZO1ASougtR-jIrEPRY8ukq9_eQt6KG4JyWtJBlk8aYeeLqr42Y4ajHEi6cz1SDuwFTHkUlHBZICxjOGoQIsfDVpTFNi7ypUHXtt3KZ5_7-2-7g9hETG6BBW8vqk9E8VEwfC0WguEOf9qsU_W5RRQtAKNfRi75yIxThis0un1yWd_eNqDpWn3qfphHSdBZTek-tlIO2gqzJ0qyiVQYGUoC427F_4ulzr"/>
+<div class="absolute top-3 left-3 z-20 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full flex items-center gap-1 border border-white/50 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">95% MATCH</span>
+</div>
+</div>
+<div class="p-5 flex flex-col gap-2 bg-white/40">
+<h4 class="font-title-lg text-title-lg text-on-background font-serif-mix">Swiss Retreat</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Experience the peak of alpine relaxation and scenic train journeys.</p>
+<div class="mt-3 flex gap-2">
+<span class="text-[12px] font-label-sm px-3 py-1 rounded-full bg-white border border-outline-variant text-on-surface-variant">Nature</span>
+<span class="text-[12px] font-label-sm px-3 py-1 rounded-full bg-white border border-outline-variant text-on-surface-variant">Relax</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-center pb-safe">
+<div class="bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-2xl rounded-full mx-4 mb-6 border border-white/50 dark:border-white/10 shadow-[0_10px_30px_-5px_rgba(30,41,59,0.15)] flex justify-around items-center px-4 py-2 w-full max-w-md transition-all">
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-2 scale-110 shadow-lg shadow-primary/30 transition-transform duration-300 ease-out active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors px-4 py-2 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-label-sm text-label-sm mt-1">Planner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors px-4 py-2 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-sm text-label-sm mt-1">Maps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors px-4 py-2 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors px-4 py-2 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

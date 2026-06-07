@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dynamic Itinerary - LUMINA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#464555",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#afc6ff",
+                        "surface": "#fcf8ff",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "tertiary-container": "#b65c00",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-container-low": "#f6f2ff",
+                        "secondary": "#0057c2",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d9e2ff",
+                        "tertiary": "#914800",
+                        "on-background": "#1b1b24",
+                        "inverse-surface": "#302f39",
+                        "on-surface": "#1b1b24",
+                        "primary-fixed": "#e3dfff",
+                        "surface-variant": "#e4e1ee",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface-container-highest": "#e4e1ee",
+                        "inverse-primary": "#c4c0ff",
+                        "surface-dim": "#dcd8e5",
+                        "primary-container": "#675df9",
+                        "inverse-on-surface": "#f3effc",
+                        "surface-tint": "#4f44e2",
+                        "outline": "#777587",
+                        "tertiary-fixed": "#ffdcc6",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-container": "#2c70e2",
+                        "on-secondary-fixed": "#001a43",
+                        "primary": "#4d41df",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#100069",
+                        "on-secondary-fixed-variant": "#004398",
+                        "tertiary-fixed-dim": "#ffb785",
+                        "on-primary-fixed-variant": "#3622ca",
+                        "outline-variant": "#c7c4d8",
+                        "surface-bright": "#fcf8ff",
+                        "background": "#F8FAFC",
+                        "on-primary-container": "#fffbff",
+                        "surface-container": "#f0ecf9",
+                        "surface-container-high": "#eae6f3",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "48px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "container-max-width": "1280px",
+                        "stack-xs": "4px",
+                        "stack-xl": "80px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .timeline-line {
+            width: 2px;
+            background: theme('colors.surface-variant');
+            left: 24px;
+            top: 40px;
+            bottom: -40px;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-variant');
+            border-radius: theme('borderRadius.full');
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #68D391;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: theme('colors.primary');
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-black/40 backdrop-blur-xl border-b border-white/20 shadow-sm transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center px-margin-mobile py-4 max-w-container-max mx-auto">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity p-2 rounded-full flex items-center justify-center active:scale-95 duration-200">
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-surface-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRrcAk5dOO693bTgJOFMKkZDWviRZCB1TxH2xnqyxsAeO4C8zZ1pHTWBNDqtfmGCmNaJ94pVdZTeiHJNpDs_cqEKlpglZmrg1Q5ki-1jHARp4rDq6I-iF0LgFaohLzvGaA-IhYbcoLtK6DlcV-y873cgjTtikQhbfdNHuezEF2Pqmo-B6muf5NEUEbZ-we3JTtVfoOLMMsVb3qUmeqTwBRASQg-B2C24A9t2nfnaz-jIoj_r_Lpa3IpHAOAOPT2SWgm06eXVFX0WTz"/>
+</button>
+<div class="font-display-lg-mobile text-display-lg-mobile tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-bold">
+                LUMINA
+            </div>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity p-2 rounded-full flex items-center justify-center active:scale-95 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<!-- Header Section with Title, Weather & Toggle -->
+<div class="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+<div>
+<h1 class="font-display-lg-mobile md:text-display-lg text-on-background mb-2 tracking-tight">Your Travel Timeline</h1>
+<p class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                    Oct 12 - Oct 19, 2024 • Paris &amp; Swiss Alps
+                </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+<!-- Weather Preview Widget -->
+<div class="flex items-center gap-3 bg-white px-4 py-2 rounded-full border border-surface-variant shadow-sm w-full sm:w-auto">
+<span class="material-symbols-outlined text-secondary">partly_cloudy_day</span>
+<div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Paris Today</div>
+<div class="font-label-md text-label-md text-on-background font-bold">18°C / 64°F</div>
+</div>
+</div>
+<!-- Download Offline Toggle -->
+<div class="flex items-center justify-between w-full sm:w-auto bg-white px-4 py-3 rounded-xl border border-surface-variant shadow-sm">
+<span class="font-label-md text-label-md text-on-background mr-4">Offline Access</span>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer transition-transform duration-200 ease-in-out z-10" id="toggle" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" for="toggle"></label>
+</div>
+</div>
+</div>
+</div>
+<!-- Itinerary Timeline -->
+<div class="relative max-w-3xl mx-auto">
+<!-- Global Timeline Line -->
+<div class="absolute timeline-line hidden md:block"></div>
+<!-- Day 1 -->
+<div class="mb-12 relative">
+<div class="flex items-center gap-4 mb-6 sticky top-20 z-20 bg-background/90 backdrop-blur-md py-2 px-2 -mx-2 rounded-lg">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold shadow-md z-10 shrink-0">
+                        D1
+                    </div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Arrival &amp; City Lights</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Paris, France • Oct 12</p>
+</div>
+</div>
+<div class="pl-4 md:pl-16 space-y-6">
+<!-- Activity Card 1 -->
+<div class="glass-card rounded-xl p-5 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl text-secondary">flight_land</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-background">CDG Airport Arrival</h3>
+<span class="px-2 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-[10px] flex items-center gap-1 border border-primary/20">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span>
+                                        AI Insight: On Time
+                                    </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Air France Flight AF123 • Terminal 2E</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-surface border border-surface-variant font-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 14:30
+                                    </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="glass-card rounded-xl p-5 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl text-primary">hotel</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-background">Check-in: Le Meurice</h3>
+<span class="px-2 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-[10px] flex items-center gap-1 border border-primary/20">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span>
+                                        AI Insight: Early Check-in Requested
+                                    </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">228 Rue de Rivoli, 75001 Paris</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-surface border border-surface-variant font-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 16:00
+                                    </span>
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary hover:bg-primary/90 font-label-sm transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">map</span> VIEW MAP
+                                    </button>
+</div>
+</div>
+<div class="w-full md:w-24 h-24 rounded-lg bg-surface-variant overflow-hidden shrink-0 mt-3 md:mt-0">
+<img alt="Hotel Room" class="w-full h-full object-cover" data-alt="A luxurious hotel suite in Paris" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvPbJFtJM79dGejgu5wK_9E4qzj0qMi54OXjOKH6WZOVF-Z2KbBaaPalHvd1nYUNwU3BGRySXnUIckeddF-iWLXJzXHCYI_AN7OiwN26mRyg_uDXPGqAgXQSKgLQNDW85CI7QjkXb8YCsGHufqEeubZDh2E0S-z3OlUch4ZQvOHrGIShxhTjUxAnqatPW8BLiFpJbiyh7RumAbg7LymOZlJJoEZvgu4HVVibe_Gy909h-ePkKuO5pi4UgABSVvWFbosQmDGeB-ypNN"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 2 -->
+<div class="mb-12 relative">
+<div class="flex items-center gap-4 mb-6 sticky top-20 z-20 bg-background/90 backdrop-blur-md py-2 px-2 -mx-2 rounded-lg">
+<div class="w-12 h-12 rounded-full bg-surface border border-surface-variant flex items-center justify-center text-on-surface font-bold z-10 shrink-0">
+                        D2
+                    </div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Iconic Landmarks</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Paris, France • Oct 13</p>
+</div>
+</div>
+<div class="pl-4 md:pl-16 space-y-6">
+<!-- Activity Card 3 -->
+<div class="glass-card rounded-xl p-5 relative overflow-hidden group border-primary/20">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="w-16 h-16 rounded-full bg-tertiary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl text-tertiary" style="font-variation-settings: 'FILL' 1;">tour</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-background">Eiffel Tower Summit Tour</h3>
+<span class="px-2 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-[10px] flex items-center gap-1 border border-tertiary/20">
+<span class="material-symbols-outlined text-[12px]">auto_awesome</span>
+                                        AI Insight: High Crowds Expected
+                                    </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Skip-the-line guided tour to the top level.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-surface border border-surface-variant font-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 10:00 - 12:30
+                                    </span>
+<button class="px-4 py-1 rounded-full bg-tertiary text-white hover:bg-tertiary/90 font-label-sm transition-colors flex items-center gap-1">
+                                        BOOK NOW
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Day 3 -->
+<div class="mb-12 relative opacity-80">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-surface border border-surface-variant flex items-center justify-center text-on-surface-variant font-bold z-10 shrink-0">
+                        D3
+                    </div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">Alpine Transit</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Paris to Interlaken • Oct 14</p>
+</div>
+</div>
+<div class="pl-4 md:pl-16 space-y-6">
+<!-- Activity Card 4 -->
+<div class="glass-card rounded-xl p-5 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-surface-variant"></div>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="w-16 h-16 rounded-full bg-surface border border-surface-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl text-on-surface-variant">train</span>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-title-lg text-title-lg text-on-background">TGV Lyria to Switzerland</h3>
+<span class="px-2 py-1 rounded-full bg-surface border border-surface-variant text-on-surface-variant font-label-sm text-[10px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+                                        CONFIRMED
+                                    </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3">Gare de Lyon → Basel SBB → Interlaken Ost</p>
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-surface border border-surface-variant font-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 08:20
+                                    </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-32 right-6 md:right-10 w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30 hover:scale-105 transition-transform z-40 group">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-center pb-safe">
+<div class="bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-2xl border border-white/50 dark:border-white/10 rounded-full mx-4 mb-6 shadow-[0_10px_30px_-5px_rgba(30,41,59,0.15)] flex justify-between items-center px-2 py-2 w-full max-w-md">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-2 scale-110 shadow-lg shadow-primary/30 hover:text-primary transition-colors">
+<span class="material-symbols-outlined mb-1">event_note</span>
+<span class="font-label-sm text-label-sm text-[10px]">Planner</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined mb-1">map</span>
+<span class="font-label-sm text-label-sm">Maps</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</button>
+</div>
+</nav>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('toggle');
+            toggle.addEventListener('change', (e) => {
+                if(e.target.checked) {
+                    console.log('Offline mode enabled');
+                } else {
+                    console.log('Offline mode disabled');
+                }
+            });
+        });
+    </script>
+</body></html>

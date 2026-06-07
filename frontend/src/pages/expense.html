@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Travel Budget Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#464555",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#afc6ff",
+                        "surface": "#fcf8ff",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "tertiary-container": "#b65c00",
+                        "on-tertiary-fixed": "#301400",
+                        "surface-container-low": "#f6f2ff",
+                        "secondary": "#0057c2",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#d9e2ff",
+                        "tertiary": "#914800",
+                        "on-background": "#1b1b24",
+                        "inverse-surface": "#302f39",
+                        "on-surface": "#1b1b24",
+                        "primary-fixed": "#e3dfff",
+                        "surface-variant": "#e4e1ee",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c4c0ff",
+                        "surface-container-highest": "#e4e1ee",
+                        "inverse-primary": "#c4c0ff",
+                        "surface-dim": "#dcd8e5",
+                        "primary-container": "#675df9",
+                        "inverse-on-surface": "#f3effc",
+                        "surface-tint": "#4f44e2",
+                        "outline": "#777587",
+                        "tertiary-fixed": "#ffdcc6",
+                        "on-tertiary-container": "#fffbff",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-container": "#2c70e2",
+                        "on-secondary-fixed": "#001a43",
+                        "primary": "#4d41df",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#100069",
+                        "on-secondary-fixed-variant": "#004398",
+                        "tertiary-fixed-dim": "#ffb785",
+                        "on-primary-fixed-variant": "#3622ca",
+                        "outline-variant": "#c7c4d8",
+                        "surface-bright": "#fcf8ff",
+                        "background": "#fcf8ff",
+                        "on-primary-container": "#fffbff",
+                        "surface-container": "#f0ecf9",
+                        "surface-container-high": "#eae6f3",
+                        "on-secondary": "#ffffff",
+                        "success": "#10b981",
+                        "success-container": "#d1fae5",
+                        "on-success-container": "#065f46"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "48px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "container-max-width": "1280px",
+                        "stack-xs": "4px",
+                        "stack-xl": "80px",
+                        "stack-md": "24px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #fcf8ff; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 30px -5px rgba(30, 41, 59, 0.08);
+        }
+        .ai-glow {
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background min-h-screen pb-[100px] md:pb-0 md:pt-[80px]">
+<!-- TopAppBar (Web & Mobile) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile py-4 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-sm md:px-margin-desktop">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGk6Gjee633d7cuC-3mo35XxkD_JDvhhyUEg6piVXampNUwnOLfIkr_nanX3okXVbmG0PxY4svgxK66_r8EIImGmzgNiVkuqNf_UnFjSuqDmY_GZDLzAWYHXOe2o_Tl6jxVwnEfKr0f8NolBMRg4beM4U_HUHAaXYvEfESzVISExerSyG_7xi-dbGsE6eOqEZuZJ6NNGjkytAQXmxcq1OK6gB1IqqN9NIXIQ9lnVsXnZnZp6In-F0usWonDLOxXLXyg79rlCgZMQTK"/>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile tracking-tighter bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hidden md:block">LUMINA</h1>
+</div>
+<h1 class="font-title-lg text-title-lg text-primary md:hidden">Travel Budget</h1>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity" href="#">Home</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity" href="#">Planner</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity" href="#">Maps</a>
+<a class="text-primary font-label-md text-label-md font-bold hover:opacity-80 transition-opacity" href="#">Wallet</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:opacity-80 transition-opacity" href="#">Profile</a>
+</nav>
+<button class="text-primary font-title-lg text-title-lg hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop pt-[80px] md:pt-[40px] pb-margin-desktop">
+<!-- Header & Main Chart -->
+<section class="mb-stack-lg">
+<h2 class="font-headline-md text-headline-md mb-stack-sm text-center md:text-left">Paris Trip 2024</h2>
+<div class="glass-card rounded-[32px] p-8 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="text-center md:text-left">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-2">Total Spent</p>
+<div class="flex items-baseline gap-2 justify-center md:justify-start">
+<span class="font-display-lg text-display-lg text-primary">$1,240</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">/ $3,000</span>
+</div>
+<p class="font-body-md text-body-md text-success mt-2 flex items-center gap-1 justify-center md:justify-start">
+<span class="material-symbols-outlined text-[18px]">check_circle</span> On track. $1,760 remaining.
+                    </p>
+</div>
+<!-- Ring Chart Mockup -->
+<div class="relative w-48 h-48 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-variant" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="147.4" stroke-linecap="round" stroke-width="12"></circle>
+<!-- Green segment for under budget indicator -->
+<circle class="text-success" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="230" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-headline-md text-headline-md text-primary">41%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Used</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Category Breakdown -->
+<div class="md:col-span-2 flex flex-col gap-6">
+<div class="grid grid-cols-2 gap-4">
+<!-- Flights -->
+<div class="glass-card rounded-[24px] p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined">flight</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">45%</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-1">Flights</p>
+<p class="font-title-lg text-title-lg">$558.00</p>
+</div>
+</div>
+<!-- Food -->
+<div class="glass-card rounded-[24px] p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-[#fca5a5] text-[#7f1d1d] flex items-center justify-center">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">25%</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-1">Food</p>
+<p class="font-title-lg text-title-lg">$310.00</p>
+</div>
+</div>
+<!-- Transport -->
+<div class="glass-card rounded-[24px] p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-[#fde047] text-[#713f12] flex items-center justify-center">
+<span class="material-symbols-outlined">train</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">15%</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-1">Transport</p>
+<p class="font-title-lg text-title-lg">$186.00</p>
+</div>
+</div>
+<!-- Shopping -->
+<div class="glass-card rounded-[24px] p-6 flex flex-col justify-between hover:-translate-y-1 transition-transform duration-300">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-full bg-[#cbd5e1] text-[#0f172a] flex items-center justify-center">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">15%</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-1">Shopping</p>
+<p class="font-title-lg text-title-lg">$186.00</p>
+</div>
+</div>
+</div>
+<!-- Transaction History -->
+<div class="glass-card rounded-[24px] p-6 flex-grow">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-title-lg text-title-lg">Recent Transactions</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between pb-4 border-b border-surface-variant">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<div>
+<p class="font-label-md text-label-md">Le Jules Verne</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Today, 8:30 PM</p>
+</div>
+</div>
+<span class="font-label-md text-label-md">-$145.00</span>
+</div>
+<div class="flex items-center justify-between pb-4 border-b border-surface-variant">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">train</span>
+</div>
+<div>
+<p class="font-label-md text-label-md">Metro Pass Weekly</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Yesterday, 10:15 AM</p>
+</div>
+</div>
+<span class="font-label-md text-label-md">-$35.00</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<div>
+<p class="font-label-md text-label-md">Galeries Lafayette</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Oct 12, 2:00 PM</p>
+</div>
+</div>
+<span class="font-label-md text-label-md">-$120.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column Widgets -->
+<div class="flex flex-col gap-6">
+<!-- AI Savings Suggestions -->
+<div class="ai-glow bg-white/80 backdrop-blur-md rounded-[24px] p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[64px] text-[#8B5CF6]">auto_awesome</span>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-[#8B5CF6]">lightbulb</span>
+<h3 class="font-title-lg text-title-lg text-[#8B5CF6]">AI Insights</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-4">
+<strong class="font-semibold">Pro Tip:</strong> Booking your return airport transfer now through the app saves <span class="text-success font-bold">15%</span> compared to standard on-arrival rates in Paris.
+                    </p>
+<button class="w-full py-3 rounded-full bg-[#8B5CF6] text-white font-label-md text-label-md hover:opacity-90 transition-opacity shadow-[0_4px_14px_0_rgba(139,92,246,0.39)]">
+                        Book Transfer Now
+                    </button>
+</div>
+<!-- Currency Converter -->
+<div class="glass-card rounded-[24px] p-6">
+<h3 class="font-title-lg text-title-lg mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">currency_exchange</span>
+                        Quick Convert
+                    </h3>
+<div class="flex flex-col gap-4">
+<div class="bg-surface-container-low rounded-xl p-3 flex justify-between items-center border border-surface-variant">
+<span class="font-body-lg text-body-lg">100.00</span>
+<div class="flex items-center gap-1 bg-surface-variant px-2 py-1 rounded-md">
+<span class="font-label-sm text-label-sm font-bold">EUR</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+</div>
+<div class="flex justify-center -my-2 relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md cursor-pointer hover:rotate-180 transition-transform duration-300">
+<span class="material-symbols-outlined text-[18px]">swap_vert</span>
+</div>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 flex justify-between items-center border border-surface-variant">
+<span class="font-body-lg text-body-lg text-on-surface-variant">105.42</span>
+<div class="flex items-center gap-1 bg-surface-variant px-2 py-1 rounded-md">
+<span class="font-label-sm text-label-sm font-bold">USD</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-center text-on-surface-variant mt-2">1 EUR = 1.0542 USD</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-center pb-safe">
+<div class="bg-white/80 dark:bg-inverse-surface/80 backdrop-blur-2xl rounded-full mx-4 mb-6 border border-white/50 dark:border-white/10 shadow-[0_10px_30px_-5px_rgba(30,41,59,0.15)] flex w-full max-w-sm justify-around px-2 py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-label-sm text-label-sm mt-1">Planner</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-sm text-label-sm mt-1">Maps</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-2 scale-110 shadow-lg shadow-primary/30 active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-4 py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>
